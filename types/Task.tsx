@@ -1,4 +1,4 @@
-interface Task {
+export interface Task {
   taskName: string;
   taskDeadline: Date;
   taskDescription: string;
@@ -6,4 +6,4 @@ interface Task {
   _id: string;
 }
 
-export default Task;
+

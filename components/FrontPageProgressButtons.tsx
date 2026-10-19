@@ -4,40 +4,39 @@ import InProgressButton from "./buttons/InProgressButton";
 import DoneButton from "./buttons/DoneButton";
 
 const FrontPageProgressButtons = ({ tasks }: { tasks: Task[] }) => {
-  
-    const todoCount = tasks.filter((t) => 
-     t.taskStatus === "todo").length;
+  const statusList = ["todo", "inProgress", "done"];
 
-    const inprogressCount = tasks.filter((t) => t.taskStatus === 'inprogress').length;
+  const todoCount = tasks.filter((t) => t.taskStatus === "todo").length;
 
-    const doneCount = tasks.filter((t) => t.taskStatus === 'done').length;
+  const inprogressCount = tasks.filter(
+    (t) => t.taskStatus === "inprogress",
+  ).length;
+
+  const doneCount = tasks.filter((t) => t.taskStatus === "done").length;
 
   return (
-    <div className="flex gap-5 mt-8 mx-4 justify-around">
-      {tasks.map((t) => {
-        return (
-          <div key={t._id}>
-            {t.taskStatus === "todo" ? (
-              <div>
+    <div className="flex flex-col gap-3">
+      <div className="flex gap-5 mt-8 mx-4 justify-around">
+        {statusList.map((s, i) => {
+          return (
+            <div key={i}>
+              {s === "todo" ? (
                 <TodoButton />
-                <p>{todoCount} tasks</p>
-              </div>
-            ) : t.taskStatus === "inprogress" ? (
-              <div>
+              ) : s === "inProgress" ? (
                 <InProgressButton />
-                <p>{inprogressCount} tasks</p>
-              </div>
-            ) : (
-              <div>
-                <DoneButton task={t} />
-                <p>{doneCount} tasks</p>
-              </div>
-            )}
-          </div>
-        );
-      })}
+              ) : (
+                <DoneButton task={tasks} />
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex justify-around">
+        <p>{todoCount} tasks</p>
+        <p>{inprogressCount} tasks</p>
+        <p>{doneCount} tasks</p>
+      </div>
     </div>
   );
 };
-
 export default FrontPageProgressButtons;

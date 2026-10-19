@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
-import App from "./app/App";
+import App from "./App";
+import './index.css';
 
 const root = document.getElementById("root");
 
