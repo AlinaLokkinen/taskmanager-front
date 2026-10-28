@@ -31,7 +31,7 @@ const FrontPageProgressButtons = ({ tasks }: { tasks: Task[] }) => {
           );
         })}
       </div>
-      <div className="flex justify-around">
+      <div className="flex justify-around text-sm">
         <p>{todoCount} tasks</p>
         <p>{inprogressCount} tasks</p>
         <p>{doneCount} tasks</p>

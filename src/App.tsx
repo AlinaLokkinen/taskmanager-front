@@ -6,6 +6,9 @@ import { Link } from "react-router";
 import { Routes, Route } from "react-router";
 import type { Task } from "../types/Task";
 import DueTodayList from "../components/DueTodayList";
+import Todos from "../components/taskLists/Todos";
+import InProgress from "../components/taskLists/InProgress";
+import Done from "../components/taskLists/Done";
 
 const App = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -62,6 +65,9 @@ const App = () => {
       />
 
       <Route path="/todaystasks" element={<TodaysTasks tasks={tasks} />} />
+      <Route path="/todos" element={<Todos />} />
+      <Route path="/inprogress" element={<InProgress />} />
+      <Route path="/done" element={<Done />} />
     </Routes>
   );
 };
